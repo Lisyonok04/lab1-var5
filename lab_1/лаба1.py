@@ -1,9 +1,21 @@
 def read_txt(file_path: str) -> str:
+    """
+    function, which reads text from .txt file
+
+    It takes as arguments path to the file
+    It returns what the file contains
+    """
     with open(file_path, "r", encoding="UTF-8") as file:
         return file.read()
 
 
 def count_character_frequency(text) -> dict:
+    """
+    function, which counts the frequency of every symbol in the text file
+
+    It takes as arguments the text
+    It returns the dictionary with frequencies
+    """
     character_frequency = {}
     text = text.lower()
     for char in text:
