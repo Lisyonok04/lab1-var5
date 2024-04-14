@@ -71,8 +71,8 @@ def read_json(file_path: str) -> dict[str:str]:
         print(Exception)
 
 
-def encrypt(text: str, key: dict[str, str]) -> str:
-    """Function encrypts the text using a key
+def text_process(text: str, key: dict[str, str]) -> str:
+    """Function processes the text using a key
 
     Args:
         text (str): text for cyphering
@@ -91,11 +91,11 @@ def encrypt(text: str, key: dict[str, str]) -> str:
 
 
 def main() -> None:
-    for dir in const.dirs:
-        text = read_txt(os.path.join(dir, const.origin_file))
-        key = read_json(os.path.join(dir, const.key_file))
-        resulting = encrypt(text, key)
-        write_txt(resulting, os.path.join(dir, const.result_file))
+    for dir in const.DIRS:
+        text = read_txt(os.path.join(dir, const.ORIGIN_FILE))
+        key = read_json(os.path.join(dir, const.KEY_FILE))
+        resulting = text_process(text, key)
+        write_txt(resulting, os.path.join(dir, const.RESULT_FILE))
 
 
 if __name__ == "_main_":
