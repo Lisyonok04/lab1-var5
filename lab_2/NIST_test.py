@@ -6,6 +6,7 @@ from typing import Dict
 
 from const import PATH, PI
 
+
 def get_json(name: str) -> Dict[str, str]:
     """Function reads the json-file at the specified path 
     and saves it to a variable
@@ -31,7 +32,13 @@ def frequency(name: str) -> float:
     Returns:
             p(float): P-value
     """
-    s = abs(sum(1 if i == "1" else -1 for i in name)) / math.sqrt(len(name))
+    sum = 0
+    for i in name:
+                if i == "1":
+                    sum -= 1
+                else:
+                    sum += 1
+    s = abs(sum / math.sqrt(len(name)))
     p = math.erfc(s / math.sqrt(2))
     return p
 
@@ -52,8 +59,11 @@ def identical(name: str) -> float:
     units = name.count("1") / n
     if abs(units - 0.5) >= 2 / math.sqrt(n):
         return 0
-    v = sum(0 if name[i] == name[i + 1] else 1 for i in range(n - 1))
-    p = math.erfc(abs(v - 2 * n * units * (1 - units)) /
+    sum = 0
+    for i in range(n - 1):
+        if name[i] != name[i + 1]:
+            sum += 1
+    p = math.erfc(abs(sum - 2 * n * units * (1 - units)) /
                        (2 * math.sqrt(2 * n) * units * (1 - units)))
     return p
 
@@ -127,7 +137,6 @@ def main() -> None:
     print(identical(java))
     print(longest_sequence(java))
     
-
 
 if __name__ == "__main__":
     main()
