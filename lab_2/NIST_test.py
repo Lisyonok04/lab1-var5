@@ -85,7 +85,6 @@ def max_sequence(name: str) -> int:
             count += 1
             maxline = max(maxline, count)
         else:
-            #maxline = max(maxline, count)
             count = 0
     return maxline
 
