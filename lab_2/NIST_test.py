@@ -109,14 +109,15 @@ def longest_sequence(name: str) -> float:
         else:
             max_len[block_max_len] = 1
     for i in max_len:
-        if i <= 1:
-            v[1] += max_len[i]
-        elif i == 2:
-            v[2] += max_len[i]
-        elif i == 3:
-            v[3] += max_len[i]
-        else:
-            v[4] += max_len[i]
+        match i:
+            case int(i) if int(i) <= 1: 
+                v[1] += max_len[i]
+            case int(i) if int(i) == 2: 
+                v[2] += max_len[i]
+            case int(i) if int(i) == 3: 
+                v[3] += max_len[i]
+            case int(i) if int(i) > 3: 
+                v[4] += max_len[i]
     xi_squared = 0
     for i in range(4):
             xi_squared += ((v[i + 1] - 16 * PI[i + 1]) ** 2) / (16 * PI[i + 1])
