@@ -32,12 +32,7 @@ def frequency(name: str) -> float:
     Returns:
             p(float): P-value
     """
-    sum = 0
-    for i in name:
-                if i == "1":
-                    sum -= 1
-                else:
-                    sum += 1
+    sum = name.count("0") - name.count("1")
     s = abs(sum / math.sqrt(len(name)))
     p = math.erfc(s / math.sqrt(2))
     return p
