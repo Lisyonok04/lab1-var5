@@ -1,8 +1,10 @@
 {
-    "initial_file":"lab_3/texts/initial.txt",
-    "encrypted_file":"lab_3/texts/encrypted.txt",
-    "decrypted_file":"lab_3/texts/decrypted.txt",
-    "symmetric_key":"lab_3/keys/symmetric.txt",
-    "public_key":"lab_3/keys/public.pem",
-    "secret_key":"lab_3/keys/secret.pem"
+    "initial_file":"texts/initial.txt",
+    "encrypted_file":"texts/encrypted.txt",
+    "decrypted_file":"texts/decrypted.txt",
+    "symmetric_key":"keys/symmetric/symmetric.txt",
+    "encrypted_symmetric_key":"keys/symmetric/encrypted.txt",
+    "decrypted_symmetric_key":"keys/symmetric/decrypted.txt",
+    "public_key":"keys/asymmetric/public.pem",
+    "private_key":"keys/asymmetric/private.pem"
 }
